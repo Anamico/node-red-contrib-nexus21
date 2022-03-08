@@ -31,9 +31,9 @@ These are in JSON format as the msg payload and look like:
     "HORIZONTAL” : "NA",
     "EXTCMD" : "UP",
     "ERROR" : {
-        id : 13,
-        short : "Short Circuit",
-        long : "Short circuit has been detected while running"
+        "id" : 13,
+        "short" : "Short Circuit",
+        "long" : "Short circuit has been detected while running"
     }
 }
 ```

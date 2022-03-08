@@ -8,6 +8,7 @@
 // const async = require('async');
 // const io = require("socket.io-client");
 const axios = require('axios');
+const errorCodes = require('./errorcodes');
 
 module.exports = function(RED) {
 
@@ -47,7 +48,7 @@ module.exports = function(RED) {
             const changed = (oldVertical !== node.VERTICAL) || (oldHorizontal !== node.HORIZONTAL);
 
             if (!node.working) {
-                node.error(json);
+                node.error(`JSON Error? ({} = ok): ${JSON.stringify(json)}`);
                 node.status({
                     fill:   'red',
                     shape:  'dot',
@@ -55,10 +56,20 @@ module.exports = function(RED) {
                 });
                 return;
             }
-            if (changed) {
+
+            var errors = null;
+
+            if ((node.STATUS === 'ERROR') && node.DESCRIPTION) {
                 // todo: add decoded error payload if required
+                // errorCodes contains the error code LUT.
+                // node.DESCRIPTION is a json list of error codes. Just map them:
+                //errors = node.DESCRIPTION.map( if in LUT, use that object, otherwise use a standardised "unknown error" object );
+            }
+
+            if (changed || errors) {
+
                 const msg = {
-                    payload: Object.assign({}, json)
+                    payload: Object.assign({}, json, { errors: errors || undefined })
                 };
                 node.send(msg); // pass on the status update to any listening nodes
                 node.status({
