@@ -7,7 +7,7 @@
   },
   "node-red": {
     "nodes": {
-      "Nexus21": "nexus21/nexus21.js"
+      "TV Lift": "nexus21/tvlift.js"
     }
   },
   "author": "Andrew",

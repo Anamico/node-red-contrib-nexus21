@@ -1,0 +1,39 @@
+<script type="text/javascript">
+
+    RED.nodes.registerType('TV Lift', {
+        category: 'Nexus21',
+        defaults: {
+            name: { value : '', required: false },
+            ip: { value : '', required: true, validate: RED.validators.regex(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/) }
+        },
+        inputs: 1,
+        outputs: 1,
+        inputLabels: "command",
+        outputLabels: "status",
+        color: '#FFFFFF',
+        icon: "squarelogo.png",
+        label: function() {
+            return this.name || 'TV Lift';
+        },
+        paletteLabel: 'Nexus21',
+        exportable: false
+    });
+</script>
+
+<script type="text/x-red" data-template-name="TV Lift">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-ip"><i class="icon-tag"></i> IP</label>
+        <input type="text" id="node-input-ip" placeholder="IP Address">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="TV Lift">
+    <p>Recommend you set a static IP for the TV Lift, otherwise it may lose connection every so often and need to be updated here.</p>
+</script>
