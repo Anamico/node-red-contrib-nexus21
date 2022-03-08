@@ -3,7 +3,7 @@
 
 Node-red nodes to enable you to automate your Nexus21 TV Lift. Works with the IPLink add on module.
 
-![Basic Example](https://github.com/Anamico/node-red-contrib-light/raw/master/images/basic.png "Basic Example")
+![Basic Example](https://github.com/Anamico/node-red-contrib-nexus21/raw/master/images/basic.png "Basic Example")
 
 # Configuration
 
@@ -30,8 +30,11 @@ These are in JSON format as the msg payload and look like:
     "VERTICAL” : "MOVING",
     "HORIZONTAL” : "NA",
     "EXTCMD" : "UP",
-    "ERROR" : 13,
-    "ERROR TEXT" : "Short circuit has been detected while running"
+    "ERROR" : {
+        id : 13,
+        short : "Short Circuit",
+        long : "Short circuit has been detected while running"
+    }
 }
 ```
 
@@ -44,7 +47,7 @@ If you would like to donate some money to support ongoing development or as a si
 
 # Disclaimer
 
-Of course, this software is offered with absolutely NO WARRANTY whatsoever offered or implied. If something is not working right,
+Of course, this software is offered with  absolutely NO WARRANTY whatsoever offered or implied. If something is not working right,
 log a ticket in github or better yet, fix it and submit a pull request.
 
 If you choose to set up and your tv gets crumbled or smashed, it's your problem, nothing to do with this software as there is no warranty
@@ -52,6 +55,4 @@ If you choose to set up and your tv gets crumbled or smashed, it's your problem,
 
 # Error Codes
 
-Here is a full list of error codes
-
-**TBC**
+** COMING SOON **
