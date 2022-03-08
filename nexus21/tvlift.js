@@ -42,7 +42,7 @@ module.exports = function(RED) {
             node.working = node.VERTICAL != 'Unknown';
 
             if (!node.working) {
-                node.error(JSON.stringify(json));
+                node.error(json);
                 node.status({
                     fill:   'red',
                     shape:  'dot',
@@ -64,7 +64,7 @@ module.exports = function(RED) {
         //
         axios.get(`http://${node.ip}/api/status`)
             .then(response => {
-                setStatus(response);
+                setStatus(response.data);
                 // don't go active here, wait to see if socket connects, it will maintain the correct active state
             })
             .catch(error => {
@@ -96,10 +96,15 @@ module.exports = function(RED) {
 
             axios.post(`http://${node.ip}/api/command`, { "COMMAND": msg.payload })
                 .then(response => {
-                    node.log(JSON.stringify(response.data));
+                    node.log(msg.payload + ': ' + ((response.data && response.data.STATUS) || "?"));
                 })
                 .catch(error => {
-                    node.error(JSON.stringify(error));
+                    node.error(error.message || 'Unknown Error');
+                    node.status({
+                        fill:   'red',
+                        shape:  'dot',
+                        text:   error.message || 'Unknown Error'
+                    });
                 });
         });
 

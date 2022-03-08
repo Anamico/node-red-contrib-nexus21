@@ -26,9 +26,9 @@ These are in JSON format as the msg payload and look like:
 
 ```json
 {
-    “STATUS” : "OK",
-    “VERTICAL” : "MOVING",
-    “HORIZONTAL” : "NA",
+    "STATUS” : "OK",
+    "VERTICAL” : "MOVING",
+    "HORIZONTAL” : "NA",
     "EXTCMD" : "UP",
     "ERROR" : 13,
     "ERROR TEXT" : "Short circuit has been detected while running"
