@@ -3,7 +3,7 @@
 
 Node-red nodes to enable you to automate your Nexus21 TV Lift. Works with the IPLink add on module.
 
-![Basic Example](https://github.com/Anamico/node-red-contrib-nexus21/raw/master/images/basic.png "Basic Example")
+![Basic Example](https://raw.githubusercontent.com/Anamico/node-red-contrib-nexus21/main/images/basic.png "Basic Example")
 
 # Configuration
 
